@@ -98,4 +98,4 @@ The central hub for user data, driving the accuracy of the AI features.
 
 
 ## 👩‍💻 About the Developer
-Built by **Shravani Mane**, integrating modern web development methodologies with advanced AI toolsets to build intelligent, scalable systems. Combining a strong foundation in CSE-AIML with practical full-stack implementation.
+Built by **Shravani Mane**, integrating modern web development methodologies with advanced AI toolsets to build intelligent, scalable systems. Combining a strong foundation in *CSE-AIML* with practical full-stack implementation.
