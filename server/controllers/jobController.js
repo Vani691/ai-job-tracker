@@ -61,3 +61,31 @@ export const getJobs = async (req, res) => {
   }
 
 };
+
+// @desc    Update job status (For Drag and Drop)
+// @route   PUT /api/jobs/:id
+// @access  Private
+export const updateJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+
+    if (!job) {
+      return res.status(404).json({ message: "Job not found" });
+    }
+
+    // Make sure the logged-in user matches the job owner
+    if (job.user.toString() !== req.user.id) {
+      return res.status(401).json({ message: "User not authorized" });
+    }
+
+    const updatedJob = await Job.findByIdAndUpdate(
+      req.params.id,
+      req.body, // This will contain the new status
+      { returnDocument: 'after' }
+    );
+
+    res.status(200).json(updatedJob);
+  } catch (error) {
+    res.status(500).json({ message: "Error updating job" });
+  }
+};
