@@ -64,43 +64,38 @@ The central hub for user data, driving the accuracy of the AI features.
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/Vani691/ai-job-tracker.git](https://github.com/Vani691/ai-job-tracker.git)
+   git clone https://github.com/Vani691/ai-job-tracker.git
    cd ai-job-tracker
-  ```
 
 2. **Install Server Dependencies**
 
-   ```bash
-   cd server
-   npm install
-  ```
+cd server
+npm install
 
-3. **Install Client Dependencies**   
+3. **Install Client Dependencies**
 
-   ```bash
-   cd ../client
-   npm install
-  ```   
+cd ../client
+npm install
 
 4. **Environment Variables**
-   ```
-   Create a .env file in the /server directory:
 
-   Code snippet
-   PORT=5000
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   GEMINI_API_KEY=your_google_ai_studio_key
-  ```
+Create a .env file in the /server directory:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+GEMINI_API_KEY=your_google_ai_studio_key
 
 5. **Boot the Application**
-   ```
-   Open two terminals.
 
-   Terminal 1 (Backend): cd server && npm run dev
+Open two separate terminals:
 
-   Terminal 2 (Frontend): cd client && npm run dev
-  ```
+Terminal 1 (Backend):
+cd server && npm run dev
+
+Terminal 2 (Frontend):
+cd client && npm run dev
+
 
 ## 👩‍💻 About the Developer
-Built by **Shravani Mane**, integrating modern web development methodologies with advanced AI toolsets to build intelligent, scalable systems. Combining a strong foundation in CSE-AIML with practical full-stack implementation.   
+Built by **Shravani Mane**, integrating modern web development methodologies with advanced AI toolsets to build intelligent, scalable systems. Combining a strong foundation in CSE-AIML with practical full-stack implementation.
