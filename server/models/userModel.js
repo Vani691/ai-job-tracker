@@ -4,18 +4,28 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: [true, "Please add a name"],
     },
-
     email: {
       type: String,
-      required: true,
+      required: [true, "Please add an email"],
       unique: true,
     },
-
     password: {
       type: String,
-      required: true,
+      required: [true, "Please add a password"],
+    },
+    role: {
+      type: String,
+      default: "",
+    },
+    bio: {
+      type: String,
+      default: "",
+    },
+    skills: {
+      type: String,
+      default: "",
     },
   },
   {
@@ -24,5 +34,4 @@ const userSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model("User", userSchema);
-
 export default User;

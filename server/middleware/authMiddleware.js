@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 
-const protect = async (req, res, next) => {
+// We use 'export const' here so it matches 'import { protect }' in your routes
+export const protect = async (req, res, next) => {
   let token;
 
   // CHECK TOKEN
@@ -9,31 +10,22 @@ const protect = async (req, res, next) => {
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
-
     try {
-
       // GET TOKEN
       token = req.headers.authorization.split(" ")[1];
 
       // VERIFY TOKEN
-      const decoded = jwt.verify(
-        token,
-        process.env.JWT_SECRET
-      );
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       // GET USER
       req.user = await User.findById(decoded.id).select("-password");
 
       next();
-
     } catch (error) {
-
       return res.status(401).json({
         message: "Not authorized",
       });
-
     }
-
   }
 
   if (!token) {
@@ -42,5 +34,3 @@ const protect = async (req, res, next) => {
     });
   }
 };
-
-export default protect;
