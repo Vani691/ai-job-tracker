@@ -68,33 +68,33 @@ The central hub for user data, driving the accuracy of the AI features.
    cd ai-job-tracker
 
 2. **Install Server Dependencies**
-
-cd server
-npm install
+   ```bash
+   cd server
+   npm install
 
 3. **Install Client Dependencies**
-
-cd ../client
-npm install
+   ```bash
+   cd ../client
+   npm install
 
 4. **Environment Variables**
+   ```bash
+   Create a .env file in the /server directory:
 
-Create a .env file in the /server directory:
-
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-GEMINI_API_KEY=your_google_ai_studio_key
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   GEMINI_API_KEY=your_google_ai_studio_key
 
 5. **Boot the Application**
+   ```bash
+   Open two separate terminals:
 
-Open two separate terminals:
+   Terminal 1 (Backend):
+   cd server && npm run dev
 
-Terminal 1 (Backend):
-cd server && npm run dev
-
-Terminal 2 (Frontend):
-cd client && npm run dev
+   Terminal 2 (Frontend):
+   cd client && npm run dev
 
 
 ## 👩‍💻 About the Developer
