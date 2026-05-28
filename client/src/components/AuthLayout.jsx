@@ -1,21 +1,17 @@
 const AuthLayout = ({ children }) => {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-4">
-  
-        {/* Glow Effects */}
-        <div className="absolute w-72 h-72 bg-cyan-500/20 blur-3xl rounded-full top-10 left-10"></div>
-  
-        <div className="absolute w-72 h-72 bg-purple-500/20 blur-3xl rounded-full bottom-10 right-10"></div>
-  
-        {/* Card */}
-        <div className="relative w-full max-w-md backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
-  
-          {children}
-  
-        </div>
-  
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4 relative overflow-hidden">
+      
+      {/* Enhanced Floating Glow Effects */}
+      <div className="absolute w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+
+      {/* Main Glassmorphism Card */}
+      <div className="relative w-full max-w-md z-10 backdrop-blur-2xl bg-slate-900/50 border border-white/10 rounded-[2rem] p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+        {children}
       </div>
-    );
-  };
-  
-  export default AuthLayout;
+    </div>
+  );
+};
+
+export default AuthLayout;

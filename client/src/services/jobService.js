@@ -42,3 +42,18 @@ export const getJobs = async () => {
 
   return response.data;
 };
+
+// UPDATE JOB STATUS (Drag and Drop)
+export const updateJobStatus = async (id, status) => {
+  const token = localStorage.getItem("token");
+  const response = await axios.put(
+    `${API_URL}/${id}`,
+    { status },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  return response.data;
+};

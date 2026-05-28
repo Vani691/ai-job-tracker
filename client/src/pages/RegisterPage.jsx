@@ -1,151 +1,98 @@
 import { useState } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
-
 import AuthLayout from "../components/AuthLayout";
-
 import { registerUser } from "../services/authService";
 
 const RegisterPage = () => {
-
   const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
 
   const handleChange = (e) => {
-
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
-
     try {
-
       const data = await registerUser(formData);
-
-      // SAVE TOKEN
       localStorage.setItem("token", data.token);
-
-      // REDIRECT
       navigate("/dashboard");
-
     } catch (error) {
-
       console.log(error);
-
       alert("Registration Failed");
-
     }
-
   };
 
   return (
     <AuthLayout>
-
-      <div className="space-y-6">
-
+      <div className="space-y-8">
         <div className="text-center">
-
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-black mb-2 text-white">
             Create Account
           </h1>
-
-          <p className="text-slate-400 mt-2">
+          <p className="text-slate-400 text-sm font-medium">
             Start tracking your applications smarter
           </p>
-
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-4"
-        >
-
-          <div>
-
-            <label className="block mb-2 text-sm text-slate-300">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-slate-300 ml-1">
               Full Name
             </label>
-
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              className="w-full bg-slate-900/70 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-purple-400 transition"
+              className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
             />
-
           </div>
 
-          <div>
-
-            <label className="block mb-2 text-sm text-slate-300">
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-slate-300 ml-1">
               Email
             </label>
-
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full bg-slate-900/70 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-purple-400 transition"
+              className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
             />
-
           </div>
 
-          <div>
-
-            <label className="block mb-2 text-sm text-slate-300">
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-slate-300 ml-1">
               Password
             </label>
-
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Create password"
-              className="w-full bg-slate-900/70 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-purple-400 transition"
+              className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
             />
-
           </div>
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:opacity-90 transition rounded-xl py-3 font-semibold text-lg"
+            className="w-full bg-purple-500 hover:bg-purple-400 text-white transition-colors duration-300 rounded-xl py-3.5 font-bold text-[15px] mt-4 shadow-lg shadow-purple-500/20"
           >
             Register
           </button>
-
         </form>
 
-        <p className="text-center text-slate-400">
-
+        <p className="text-center text-sm text-slate-400">
           Already have an account?{" "}
-
-          <Link
-            to="/"
-            className="text-purple-400 hover:underline"
-          >
-            Login
+          <Link to="/" className="text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+            Login here
           </Link>
-
         </p>
-
       </div>
-
     </AuthLayout>
   );
 };
